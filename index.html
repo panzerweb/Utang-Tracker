@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTANG TRACKER | Panzerweb</title>
+</head>
+<body>
+    <h1>Utang Tracker</h1>
+
+        <form action="" id="input-expenses">
+            <label for="customer-name">Name: </label>
+            <input type="text" name="" id="customer-name" required>
+
+            <label for="product-name">Product: </label>
+            <input type="text" name="" id="product-name" required>
+
+            <label for="quantity-number">Quantity: </label>
+            <input type="number" name="" id="quantity-number">
+
+            <label for="price-number">Price: </label>
+            <input type="number" name="" id="price-number">
+
+            <button type="button" onclick="addDebt()">Add</button>
+        </form>
+    <h2>Customer Balance</h2>
+        <label for="checkCustomer"></label>
+            <input type="text" name="" id="checkCustomer">
+
+            <button type="button" onclick="checkBalance()">Check Balance</button>
+
+            <div id="balance-result"></div>
+
+            
+
+    <!--! JavaScript file-->
+    <script src="app.js"></script>
+</body>
+</html>
