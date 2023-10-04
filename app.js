@@ -5,7 +5,7 @@ let customer_name, product_name, quantity, price_number;
 let totalPrice;
 
 // initialize debts as an empty array
-let debts = [];
+let debts = JSON.parse(localStorage.getItem('debts')) || [];
 
 //Function to get value of initialized variables
 function initializeVariables(){
@@ -20,10 +20,44 @@ function addDebt(){
     //Callback function
     initializeVariables();
 
-    //Add new Debts to push
-    const testForPush = `${"Name: " + customer_name} | ${"Product: " + product_name} | ${"Quantity: " + quantity} | ${"Price: " + price_number}| ${"Total: " + totalPrice}`;
-    //Finally push
-    debts.push(testForPush);
-    //Run for testing
+    //Add new debt object
+    const newDebt = {
+        customer_name,
+        product_name,
+        quantity: parseInt(quantity), //Convert into Integer
+        price_number: parseFloat(price_number), //Convert into Float
+        totalPrice: parseFloat(totalPrice.toFixed(2)), //Convert into Float
+    };
+    //Push newDebt object to empty array
+    debts.push(newDebt);
+    
+    //To store the debts into an array in the local storage, use:
+    //set items in the localstorage and stringify the debts array
+    localStorage.setItem('debts',JSON.stringify(debts));
+
     console.log(debts);
+}
+
+//Function for checking balance
+function checkBalance() {
+    //Get the value of checkCustomer
+    const checkCustomer =  document.getElementById('checkCustomer').value;
+        //Acquire existing debts or initialize an empty array
+        const debts = JSON.parse(localStorage.getItem('debts')) || [];
+
+        //filter debts to match customer name and the checkCustomer value
+        const customerDebts = debts.filter(debt => {
+            return debt.customer_name === checkCustomer;
+        })
+        //calculate the total balance/Sum using reduce(acc, debtValue)
+        const totalBalance = customerDebts.reduce(function(accumulator, debtValue){
+            return accumulator + debtValue.totalPrice;
+        }, 0)
+        //Display the output using innerText
+        document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}`;
+        
+
+
+
+
 }
