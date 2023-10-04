@@ -30,7 +30,7 @@ function addDebt(){
     };
     //Push newDebt object to empty array
     debts.push(newDebt);
-    
+
     //To store the debts into an array in the local storage, use:
     //set items in the localstorage and stringify the debts array
     localStorage.setItem('debts',JSON.stringify(debts));
@@ -42,7 +42,7 @@ function addDebt(){
 function checkBalance() {
     //Get the value of checkCustomer
     const checkCustomer =  document.getElementById('checkCustomer').value;
-        //Acquire existing debts or initialize an empty array
+        //Acquire existing debts by parsing local storage that gets the debts or initialize an empty array
         const debts = JSON.parse(localStorage.getItem('debts')) || [];
 
         //filter debts to match customer name and the checkCustomer value
