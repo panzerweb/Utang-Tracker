@@ -41,12 +41,17 @@ function addDebt(){
     localStorage.setItem('debts',JSON.stringify(debts));
 
     console.log(debts);
+
+    checkBalance(newDebt);
 }
+
 
 //todo - Function for checking balance
 function checkBalance() {
     //todo - Get the value of checkCustomer by id
     const checkCustomer =  document.getElementById('checkCustomer').value;
+
+
         //todo - Acquire existing debts by parsing local storage that gets the debts or initialize an empty array
         const debts = JSON.parse(localStorage.getItem('debts')) || [];
 
@@ -54,12 +59,31 @@ function checkBalance() {
         const customerDebts = debts.filter(debt => {
             return debt.customer_name === checkCustomer;
         })
+        //todo test: Get the products, price, quantity, and total to display
+        const productDisplay = customerDebts.flatMap(debt => ({
+            product: debt.product_name,
+            price: debt.price_number,
+            quantity: debt.quantity,
+            priceEach: debt.quantity * debt.price_number,
+        }));
+
+
         //todo - calculate the total balance or Sum using reduce(acc, debtValue)
         const totalBalance = customerDebts.reduce(function(accumulator, debtValue){
             return accumulator + debtValue.totalPrice;
         }, 0)
         //todo - Display the output using innerText
         document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}`;
+        
+            //todo - this is the code for the receipt feature
+            //todo - Mapping the productDisplay function to return all properties in a listed form
+            const formattedProductAndQty = productDisplay.map(item => {
+                return `<li>Product: ${item.product} | Qty: ${item.quantity} | Price: ${item.price} | Total: ${item.priceEach}</li>`
+            })
+            //todo - Displaying the output of the receipt
+            document.getElementById('product-list').innerHTML = formattedProductAndQty.join('');
+        
+
 
 }
 
@@ -97,5 +121,9 @@ function clearDebts(){
                 }
 
 
+}
 
+//Function to reload the page
+function reloadPage(){
+    location.reload();
 }
