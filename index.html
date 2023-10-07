@@ -4,39 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTANG TRACKER | Panzerweb</title>
+
+    <!-- * Bootstrap CDNs Links-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1>Utang Tracker</h1>
+    <div class="container-lg my-4">
+        <h1 class="text-center">Utang Tracker</h1>
+                <form action="" id="input-expenses" class="row g-3 ">
+                    <div class="col-md-6">
+                        <label for="customer-name" class="form-label">Name: </label>
+                        <input type="text" class="form-control" id="customer-name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="product-name" class="form-label">Product: </label>
+                        <input type="text" class="form-control" id="product-name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="quantity-number" class="form-label">Quantity: </label>
+                        <input type="number" class="form-control" id="quantity-number">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="price-number" class="form-label">Price: </label>
+                        <input type="number" class="form-control" id="price-number">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary w-50" onclick="addDebt()">Add</button>
+                    </div>
+                </form>
 
-        <form action="" id="input-expenses">
-            <label for="customer-name">Name: </label>
-            <input type="text" name="" id="customer-name" required>
 
-            <label for="product-name">Product: </label>
-            <input type="text" name="" id="product-name" required>
+        <h2 class="text-center">Customer Balance</h2>
+        <form action="" class="row g-2">
+            <div class="col-md-12">
+                <label for="checkCustomer" class="form-label">Check Balance: </label>
+                <input type="text" name="" id="checkCustomer" class="form-control">
 
-            <label for="quantity-number">Quantity: </label>
-            <input type="number" name="" id="quantity-number">
+                <div class="col-md-12 text-center">
+                    <button type="button" onclick="checkBalance()" class="btn btn-primary">Check Balance</button>
+                    <!--Delete Button-->
+                    <button type="button" onclick="clearDebts()" class="btn btn-primary">Clear Debt</button>
 
-            <label for="price-number">Price: </label>
-            <input type="number" name="" id="price-number">
-
-            <button type="button" onclick="addDebt()">Add</button>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <h3>Total:</h3>
+                <div id="balance-result">Total Balance:</div>
+                <h3>Receipt:</h3>
+                <ul id="product-list"></ul>
+            </div>
         </form>
-    <h2>Customer Balance</h2>
-        <label for="checkCustomer"></label>
-            <input type="text" name="" id="checkCustomer">
-            <!--checking balance button-->
-            <button type="button" onclick="checkBalance()">Check Balance</button>
-            <!--Delete Button-->
-            <button type="button" onclick="clearDebts()">Clear Debt</button>
-            <label for="reloadPage"><strong>Always refresh page after clearing debts</strong></label>
-            <button type="button" onclick="reloadPage()" id="reloadPage">Refresh Page</button>
-            <h3>Total:</h3>
-            <div id="balance-result"></div>
-            <h3>Receipt:</h3>
-            <ul id="product-list"></ul>
 
+        <div class="col-12 text-center">
+            <label for="reloadPage" class="form-label"><strong>Always refresh page after clearing debts</strong></label>
+        </div>
+        <div class="col-12 text-center">
+            <button type="button" onclick="reloadPage()" id="reloadPage" class="btn btn-primary">Refresh Page</button>
+        </div>
+    </div>
+   
 
             
 
@@ -45,5 +73,9 @@
 
     <!--! JavaScript file-->
     <script src="app.js"></script>
+
+    <!-- * Bootstrap CDN Link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 </html>
