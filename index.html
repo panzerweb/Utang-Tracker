@@ -30,7 +30,7 @@
                         <input type="number" class="form-control" id="price-number">
                     </div>
                     <div class="col-12 text-center">
-                        <button type="button" class="btn btn-primary w-50" onclick="addDebt()">Add</button>
+                        <button type="button" class="btn btn-danger w-50" onclick="addDebt()">Add</button>
                     </div>
                 </form>
 
@@ -42,9 +42,9 @@
                 <input type="text" name="" id="checkCustomer" class="form-control">
 
                 <div class="col-md-12 text-center">
-                    <button type="button" onclick="checkBalance()" class="btn btn-primary">Check Balance</button>
+                    <button type="button" onclick="checkBalance()" class="btn btn-success my-3 mx-2">Check Balance</button>
                     <!--Delete Button-->
-                    <button type="button" onclick="clearDebts()" class="btn btn-primary">Clear Debt</button>
+                    <button type="button" onclick="clearDebts()" class="btn btn-warning my-3 mx-2">Clear Debt</button>
 
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <h3>Total:</h3>
                 <div id="balance-result">Total Balance:</div>
                 <h3>Receipt:</h3>
-                <ul id="product-list"></ul>
+                <ul id="product-list" class="bg-warning"></ul>
             </div>
         </form>
 

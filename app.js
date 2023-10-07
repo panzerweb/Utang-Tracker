@@ -78,7 +78,10 @@ function checkBalance() {
             //todo - this is the code for the receipt feature
             //todo - Mapping the productDisplay function to return all properties in a listed form
             const formattedProductAndQty = productDisplay.map(item => {
-                return `<li id="list-of-products">Product: ${item.product} | Qty: ${item.quantity} | Price: ${item.price} | Total: ${item.priceEach}</li>`
+                return `<li id="list-of-products">Product: ${item.product}
+                                                | Qty: ${item.quantity}
+                                                | Price: ${item.price}
+                                                | <strong> Total: ${item.priceEach}</strong></li>`
             })
             //todo - Displaying the output of the receipt
             document.getElementById('product-list').innerHTML = formattedProductAndQty.join('');
