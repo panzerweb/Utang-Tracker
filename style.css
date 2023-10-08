@@ -92,13 +92,15 @@
 
 /* todo - Add this to your CSS stylesheet or within a <style> tag in your HTML file */
 /* todo this is for the table */
+/* Default styles for the table */
 #product-list table {
     border-collapse: collapse;
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
-#product-list th, #product-list td {
+#product-list th,
+#product-list td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
@@ -108,23 +110,16 @@
     background-color: #f2f2f2; /* Optional: Adding a light background color to header cells */
 }
 
-
-@media (max-width: 768px){
-    #total-text{
-        text-align: center !important;
-    }
-    #balance-result{
-        text-align: center !important;
-    }   
-
+/* Media query for screens below 768px (tablets and mobile devices) */
+@media (max-width: 768px) {
     #product-list table {
-        font-size: 14px; /* Decrease font size, for example */
+        font-size: 14px; /* Decrease font size for readability on small screens */
     }
 
     #product-list th,
     #product-list td {
-        padding: 4px; /* Decrease padding, for example */
-        word-break: break-all; /* Allow text to break and wrap */
+        padding: 4px; /* Decrease padding for compactness */
+        word-break: break-word; /* Allow text to break and wrap */
     }
 
     #product-list th:nth-child(1), /* Target the first column */
