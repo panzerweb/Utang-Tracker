@@ -117,14 +117,33 @@
         text-align: center !important;
     }
 
+
+    
+
     #product-list table {
-        /* Adjust the styles for smaller screens here */
         font-size: 14px; /* Decrease font size, for example */
     }
 
     #product-list th,
     #product-list td {
-        /* Adjust the styles for table cells on smaller screens here */
         padding: 4px; /* Decrease padding, for example */
+        word-break: break-all; /* Allow text to break and wrap */
+    }
+
+    #product-list th:nth-child(1), /* Target the first column */
+    #product-list td:nth-child(1) {
+        width: 30%; /* Adjust the width of the first column */
+    }
+    
+    #product-list th:nth-child(2), /* Target the second column */
+    #product-list td:nth-child(2) {
+        width: 20%; /* Adjust the width of the second column */
+    }
+    
+    /* Repeat the above for other columns as needed */
+
+    /* Optional: Add a horizontal scrollbar for small screens if necessary */
+    #product-list {
+        overflow-x: auto;
     }
 }
