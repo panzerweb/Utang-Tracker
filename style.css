@@ -145,5 +145,6 @@
     /* Optional: Add a horizontal scrollbar for small screens if necessary */
     #product-list {
         overflow-x: auto;
+        /*Hello*/
     }
 }
