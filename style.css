@@ -110,6 +110,9 @@
     background-color: #f2f2f2; /* Optional: Adding a light background color to header cells */
 }
 
+
+
+
 /* Media query for screens below 768px (tablets and mobile devices) */
 @media (max-width: 768px) {
     #product-list table {
