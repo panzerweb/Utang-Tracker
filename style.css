@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta&family=Roboto&family=Roboto+Condensed&display=swap');
 
 *{
     margin: 0;
@@ -19,6 +19,7 @@
 }
 
 #container h1{
+    font-size: 3.4rem;
     font-family: 'Lexend Zetta', sans-serif;
 }
 #container h2{
@@ -87,4 +88,32 @@
     font-weight: 600;
     color: var(--font-color);
     cursor: pointer;       
+}
+
+/* todo - Add this to your CSS stylesheet or within a <style> tag in your HTML file */
+/* todo this is for the table */
+#product-list table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#product-list th, #product-list td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+#product-list th {
+    background-color: #f2f2f2; /* Optional: Adding a light background color to header cells */
+}
+
+
+@media (max-width: 768px){
+    #total-text{
+        text-align: center !important;
+    }
+    #balance-result{
+        text-align: center !important;
+    }
 }
