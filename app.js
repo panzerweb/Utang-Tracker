@@ -120,13 +120,11 @@ function clearDebts(){
                     //** Update local storage by stringify the updatedDebts
                     localStorage.setItem('debts', JSON.stringify(updatedDebts));
                     //! Prompt all debts are clear
-                    alert(`All Debts Cleared`)
+                    alert(`All Debts Cleared`);
+                    location.reload();
+
                 }
 
 
 }
 
-//Function to reload the page
-function reloadPage(){
-    location.reload();
-}

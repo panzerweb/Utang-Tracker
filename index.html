@@ -5,46 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTANG TRACKER | Panzerweb</title>
 
+    <link rel="stylesheet" href="style.css">
     <!-- * Bootstrap CDNs Links-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="container-lg my-4">
+    <div class="container-lg my-4" id="container">
         <h1 class="text-center">Utang Tracker</h1>
                 <form action="" id="input-expenses" class="row g-3 ">
                     <div class="col-md-6">
-                        <label for="customer-name" class="form-label">Name: </label>
-                        <input type="text" class="form-control" id="customer-name" required>
+                        <label for="customer-name" class="form-label">
+                            <i class="bi bi-person-fill"></i>
+                        </label>
+                        <input type="text" class="form-control" id="customer-name" placeholder="Customer Name" required>
                     </div>
+
                     <div class="col-md-6">
-                        <label for="product-name" class="form-label">Product: </label>
-                        <input type="text" class="form-control" id="product-name" required>
+                        <label for="product-name" class="form-label">
+                            <i class="bi bi-cart-fill"></i>
+                        </label>
+                        <input type="text" class="form-control" id="product-name" placeholder="Product Name" required>
                     </div>
+
                     <div class="col-md-6">
-                        <label for="quantity-number" class="form-label">Quantity: </label>
-                        <input type="number" class="form-control" id="quantity-number">
+                        <label for="quantity-number" class="form-label">
+                            <i class="bi bi-basket2-fill"></i>
+                        </label>
+                        <input type="number" class="form-control" id="quantity-number" placeholder="Qty">
                     </div>
+
                     <div class="col-md-6">
-                        <label for="price-number" class="form-label">Price: </label>
-                        <input type="number" class="form-control" id="price-number">
+                        <label for="price-number" class="form-label">
+                            <i class="bi bi-tags-fill"></i>
+                        </label>
+                        <input type="number" class="form-control" id="price-number" placeholder="Price">
                     </div>
-                    <div class="col-12 text-center">
-                        <button type="button" class="btn btn-danger w-50" onclick="addDebt()">Add</button>
+                    
+                    <div class="col-12 text-center mt-5">
+                        <button type="button" class="btn btn-danger w-50" onclick="addDebt()" id="add_btn">Add</button>
                     </div>
                 </form>
 
 
-        <h2 class="text-center">Customer Balance</h2>
-        <form action="" class="row g-2">
+        <h2 class="text-center mt-5">Customer Balance</h2>
+        <form action="" class="row g-2" id="input-expenses">
             <div class="col-md-12">
-                <label for="checkCustomer" class="form-label">Check Balance: </label>
-                <input type="text" name="" id="checkCustomer" class="form-control">
+                <label for="checkCustomer" class="form-label">
+                    <i class="bi bi-wallet-fill"></i>
+                </label>
+                <input type="text" name="" id="checkCustomer" class="form-control" placeholder="Check Balance">
 
-                <div class="col-md-12 text-center">
-                    <button type="button" onclick="checkBalance()" class="btn btn-success my-3 mx-2">Check Balance</button>
+                <div class="col-md-12 text-center mt-4">
+                    <button type="button" onclick="checkBalance()" class="btn btn-success my-3 mx-2" id="c_balance_btn">Check Balance</button>
                     <!--Delete Button-->
-                    <button type="button" onclick="clearDebts()" class="btn btn-warning my-3 mx-2">Clear Debt</button>
+                    <button type="button" onclick="clearDebts()" class="btn btn-warning my-3 mx-2" id="c_balance_btn">Clear Debt</button>
 
                 </div>
             </div>
@@ -57,12 +73,12 @@
             </div>
         </form>
 
-        <div class="col-12 text-center">
+        <!-- <div class="col-12 text-center">
             <label for="reloadPage" class="form-label"><strong>Always refresh page after clearing debts</strong></label>
         </div>
         <div class="col-12 text-center">
             <button type="button" onclick="reloadPage()" id="reloadPage" class="btn btn-primary">Refresh Page</button>
-        </div>
+        </div> -->
     </div>
    
 
