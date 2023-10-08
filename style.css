@@ -115,10 +115,7 @@
     }
     #balance-result{
         text-align: center !important;
-    }
-
-
-    
+    }   
 
     #product-list table {
         font-size: 14px; /* Decrease font size, for example */
@@ -145,6 +142,5 @@
     /* Optional: Add a horizontal scrollbar for small screens if necessary */
     #product-list {
         overflow-x: auto;
-        /*Hello*/
     }
 }
