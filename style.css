@@ -141,4 +141,14 @@
     #product-list {
         overflow-x: auto;
     }
+
+    #input-expenses{
+        width: 100;
+        padding: 20px;
+        margin: 0 auto;
+        background: lightgrey;
+        border-radius: 5px;
+        border: 2px solid var(--main-color);
+        box-shadow: 4px 4px var(--main-color);
+    }
 }
