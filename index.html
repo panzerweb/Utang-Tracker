@@ -12,9 +12,11 @@
 
 </head>
 <body>
+    <!--todo Main UI for adding debts-->
     <div class="container-lg my-4" id="container">
         <h1 class="text-center mb-5">Utang Tracker</h1>
                 <form action="" id="input-expenses" class="row g-3 ">
+                    <!--* Customer Name input-->
                     <div class="col-md-6">
                         <label for="customer-name" class="form-label">
                             <i class="bi bi-person-fill"></i>
@@ -22,6 +24,7 @@
                         <input type="text" class="form-control" id="customer-name" placeholder="Customer Name" required>
                     </div>
 
+                    <!--* Product Name input-->
                     <div class="col-md-6">
                         <label for="product-name" class="form-label">
                             <i class="bi bi-cart-fill"></i>
@@ -29,6 +32,7 @@
                         <input type="text" class="form-control" id="product-name" placeholder="Product Name" required>
                     </div>
 
+                    <!--* Quantity input-->
                     <div class="col-md-6">
                         <label for="quantity-number" class="form-label">
                             <i class="bi bi-basket2-fill"></i>
@@ -36,6 +40,7 @@
                         <input type="number" class="form-control" id="quantity-number" placeholder="Qty">
                     </div>
 
+                    <!--* Price Input-->
                     <div class="col-md-6">
                         <label for="price-number" class="form-label">
                             <i class="bi bi-tags-fill"></i>
@@ -43,12 +48,13 @@
                         <input type="number" class="form-control" id="price-number" placeholder="Price">
                     </div>
                     
+                    <!--* Adding the input to the console and to the balance-->
                     <div class="col-12 text-center mt-5">
                         <button type="button" class="btn btn-danger w-50" onclick="addDebt()" id="add_btn">Add</button>
                     </div>
                 </form>
 
-
+        <!--todo Inputs the Customer Name for checking the balance-->
         <h2 class="text-center mt-5">Customer Balance</h2>
         <form action="" class="row g-2" id="input-expenses">
             <div class="col-md-12">
@@ -56,7 +62,8 @@
                     <i class="bi bi-wallet-fill"></i>
                 </label>
                 <input type="text" name="" id="checkCustomer" class="form-control" placeholder="Check Balance">
-
+                
+                <!--* buttons for checking balance and clearing debts-->
                 <div class="col-md-12 text-center mt-4">
                     <button type="button" onclick="checkBalance()" class="btn btn-success my-3 mx-2" id="c_balance_btn">Check Balance</button>
                     <!--Delete Button-->
@@ -65,6 +72,7 @@
                 </div>
             </div>
             
+            <!--todo Shows the Total Balance and Receipt-->
             <div class="col-12">
                 <h3 style="font-family: 'Lexend Zetta', sans-serif;">Receipt:</h3>
                 <div id="product-list" class="text-center"></div>
