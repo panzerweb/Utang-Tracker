@@ -53,8 +53,7 @@ function checkBalance() {
 
 
         //todo - Acquire existing debts by parsing local storage that gets the debts or initialize an empty array
-        const debts = JSON.parse(localStorage.getItem('debts')) || [];
-
+        let debts = JSON.parse(localStorage.getItem('debts')) || [];
         //todo - filter debts to match customer name and the checkCustomer value
         const customerDebts = debts.filter(debt => {
             return debt.customer_name === checkCustomer;
@@ -112,7 +111,7 @@ function clearDebts(){
     //** Get the value of the customer in the checkCustomer for clearing
     const clearCustomer = document.getElementById('checkCustomer').value;
     //** Acquire existing debts by parsing local storage that gets the debts or initialize an empty array
-    const debts = JSON.parse(localStorage.getItem('debts')) || [];
+    let debts = JSON.parse(localStorage.getItem('debts')) || [];
     //** filter debts by matching customer name to the customer you want to clear
     const customerDebts = debts.filter(function(debt){
         return debt.customer_name === clearCustomer;
@@ -143,5 +142,38 @@ function clearDebts(){
                 }
 
 
+}
+
+
+function paymentHere() {
+    const checkCustomer = document.getElementById('checkCustomer').value;
+    let debts = JSON.parse(localStorage.getItem('debts')) || [];
+
+    let promptUser = prompt("Enter payment: ");
+    let paymentPrompt = parseInt(promptUser, 10);
+
+    if (isNaN(paymentPrompt)) {
+        alert("Please enter a valid payment amount.");
+        return;
+    }
+
+    const customerDebt = debts.reduce(function(acc, debtValue) {
+        return acc + debtValue.totalPrice;
+    }, 0);
+
+    const resultPayment = customerDebt - paymentPrompt;
+
+    // Update the total balance in local storage
+    debts = debts.map(function (debt) {
+        if (debt.customer_name === checkCustomer) {
+            debt.totalPrice = resultPayment;
+        }
+        return debt;
+    });
+
+    localStorage.setItem('debts', JSON.stringify(debts));
+
+    console.log(resultPayment);
+    document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${resultPayment.toFixed(2)}`;
 }
 

@@ -15,6 +15,7 @@
 
     --bg-check-bg: #208513;
     --bg-clear-bg: #f3f047;
+    --bg-payment: #2d8cf0;
     --bg-add-bg: #c42525;
 }
 
@@ -79,7 +80,18 @@
     color: var(--bg-color);
     cursor: pointer;    
 }
-#c_balance_btn:last-child{
+#c-payment{
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-payment);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--bg-color);
+    cursor: pointer;    
+}
+
+#c_balance_btn:nth-child(2){
     border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-clear-bg);
