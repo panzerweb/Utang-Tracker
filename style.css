@@ -80,7 +80,8 @@
     color: var(--bg-color);
     cursor: pointer;    
 }
-#c-payment{
+/*! This code is unusable */
+/*! #c-payment{
     border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-payment);
@@ -90,6 +91,7 @@
     color: var(--bg-color);
     cursor: pointer;    
 }
+*/
 
 #c_balance_btn:nth-child(2){
     border-radius: 5px;
