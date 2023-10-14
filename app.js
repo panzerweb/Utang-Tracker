@@ -48,6 +48,11 @@ function addDebt(){
 
 //todo - Function for checking balance
 function checkBalance() {
+        //* Dates
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const day = String(currentDate.getDate()).padStart(2, '0');
     //todo - Get the value of checkCustomer by id
     const checkCustomer =  document.getElementById('checkCustomer').value;
 
@@ -72,7 +77,8 @@ function checkBalance() {
             return accumulator + debtValue.totalPrice;
         }, 0)
         //todo - Display the output using innerText
-        document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}`;
+        document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}
+                                                                Last paid: ${year}-${month}-${day}`;
         
             //todo - this is the code for the receipt feature
             //todo - Mapping the productDisplay function to return all properties in a listed form
@@ -145,4 +151,67 @@ function clearDebts(){
 }
 
 
+function paymentHere() {
+    //* Dates
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(currentDate.getDate()).padStart(2, '0');
+
+
+    //*Get the customer values
+    const checkCustomer = document.getElementById('checkCustomer').value;
+    //* Retrieve the debts from local storage
+    let debts = JSON.parse(localStorage.getItem('debts')) || [];
+
+    //* Prompts the user for input
+    const promptUser = prompt("Enter payment: ");
+    const paymentPrompt = parseFloat(promptUser);
+
+    //*Checks if the payment is valid
+    //* if payment isNaN or Not A Number, or if payment is less than 0
+    if (isNaN(paymentPrompt || paymentPrompt <= 0)) {
+        alert("Please enter a valid payment amount.");
+        return;
+    }
+    
+    //* find the debt object of the customer using find method
+    //* return debt.customer_name === checkCustomer
+    const customerDebt = debts.find(function(debt){
+        return debt.customer_name === checkCustomer;
+    })
+    
+    //*Check if the debt exist, but this code is mainly for if there is no debt anymore
+    //* Use !customerDebt for expression
+    if (!customerDebt) {
+        alert(`No Debt for ${checkCustomer}`);
+        return;
+    }
+
+    //* Subtracts the prompt's amount from the customer totalPrice
+    customerDebt.totalPrice -= paymentPrompt;
+
+    //*After deducting, this code prevents the debt to become negative
+    //* Use Math.max()
+    customerDebt.totalPrice = Math.max(0, customerDebt.totalPrice);
+
+
+    //* Update the total balance in local storage
+    //*Use map method to see if customer_name === checkCustomer then return the customerDebt
+    debts = debts.map(function (debt) {
+        if (debt.customer_name === checkCustomer) {
+            return customerDebt;
+        }
+        //*Return the debt
+        return debt;
+    });
+    
+    //*Update the local storage by stringifying the debts
+    localStorage.setItem('debts', JSON.stringify(debts));
+
+    //* Display the output
+    console.log(customerDebt.totalPrice.toFixed(2));
+    document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${customerDebt.totalPrice.toFixed(2)} 
+        - Last paid: ${year}-${month}-${day}`;
+}
 
