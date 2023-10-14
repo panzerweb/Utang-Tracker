@@ -80,16 +80,6 @@
     color: var(--bg-color);
     cursor: pointer;    
 }
-#c-payment{
-    border-radius: 5px;
-    border: 2px solid var(--main-color);
-    background-color: var(--bg-payment);
-    box-shadow: 4px 4px var(--main-color);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--bg-color);
-    cursor: pointer;    
-}
 
 #c_balance_btn:nth-child(2){
     border-radius: 5px;
