@@ -77,8 +77,7 @@ function checkBalance() {
             return accumulator + debtValue.totalPrice;
         }, 0)
         //todo - Display the output using innerText
-        document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}
-                                                                Last paid: ${year}-${month}-${day}`;
+        document.getElementById('balance-result').innerText = `Total Balance for ${checkCustomer}: ${totalBalance.toFixed(2)}`;
         
             //todo - this is the code for the receipt feature
             //todo - Mapping the productDisplay function to return all properties in a listed form
